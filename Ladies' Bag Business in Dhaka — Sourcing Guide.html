@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Dhaka Bag Business — Sourcing Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0d0b;
+    --bg-warm:#161311;
+    --ink:#f3ecdf;
+    --ink-soft:#c7b9a0;
+    --ink-faint:#8a7c66;
+    --card:#17140f;
+    --line:#2c2618;
+    --line-strong:#4a3f24;
+
+    --plum:#d4af37;
+    --plum-deep:#e8c766;
+    --plum-tint:#241f11;
+
+    --coral:#d4af37;
+    --coral-deep:#f0cf6e;
+    --coral-tint:#241f11;
+
+    --gold:#d4af37;
+    --gold-tint:#241f11;
+
+    --teal:#c9a961;
+    --teal-tint:#201b0e;
+
+    --good:#8fbf8a;
+    --good-bg:#182015;
+    --bad:#d98a72;
+    --bad-bg:#241611;
+
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow-card: 0 2px 6px rgba(0,0,0,0.35), 0 10px 30px -12px rgba(0,0,0,0.55);
+    --shadow-pop: 0 8px 28px -6px rgba(212,175,55,0.25);
+    --maxw: 1120px;
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg:#0e0d0b; --bg-warm:#161311; --ink:#f3ecdf; --ink-soft:#c7b9a0; --ink-faint:#8a7c66;
+      --card:#17140f; --line:#2c2618; --line-strong:#4a3f24;
+      --plum:#d4af37; --plum-deep:#e8c766; --plum-tint:#241f11;
+      --coral:#d4af37; --coral-deep:#f0cf6e; --coral-tint:#241f11;
+      --gold:#d4af37; --gold-tint:#241f11;
+      --teal:#c9a961; --teal-tint:#201b0e;
+      --good:#8fbf8a; --good-bg:#182015; --bad:#d98a72; --bad-bg:#241611;
+      --shadow-card: 0 2px 6px rgba(0,0,0,0.35), 0 10px 30px -12px rgba(0,0,0,0.55);
+      --shadow-pop: 0 8px 28px -6px rgba(212,175,55,0.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0e0d0b; --bg-warm:#161311; --ink:#f3ecdf; --ink-soft:#c7b9a0; --ink-faint:#8a7c66;
+    --card:#17140f; --line:#2c2618; --line-strong:#4a3f24;
+    --plum:#d4af37; --plum-deep:#e8c766; --plum-tint:#241f11;
+    --coral:#d4af37; --coral-deep:#f0cf6e; --coral-tint:#241f11;
+    --gold:#d4af37; --gold-tint:#241f11;
+    --teal:#c9a961; --teal-tint:#201b0e;
+    --good:#8fbf8a; --good-bg:#182015; --bad:#d98a72; --bad-bg:#241611;
+    --shadow-card: 0 2px 6px rgba(0,0,0,0.35), 0 10px 30px -12px rgba(0,0,0,0.55);
+    --shadow-pop: 0 8px 28px -6px rgba(212,175,55,0.25);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-padding-top:76px; -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  h1,h2,h3,h4{ font-family:'Fraunces',Georgia,serif; color:var(--ink); margin:0; font-weight:600; }
+  a{ color:var(--plum); text-decoration:none; }
+  p{ max-width:70ch; color:var(--ink-soft); }
+  ::selection{ background:var(--coral-tint); color:var(--coral-deep); }
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, var(--coral-tint), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 0%, var(--plum-tint), transparent 55%),
+      var(--bg-warm);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:56px 24px 44px;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:700; letter-spacing:0.03em;
+    color:var(--coral-deep);
+    background:var(--coral-tint);
+    border:1px solid var(--line-strong);
+    padding:6px 14px 6px 12px;
+    border-radius:100px;
+    margin-bottom:20px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--coral); }
+  .hero h1{
+    font-size:clamp(32px, 5vw, 52px);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  .hero h1 em{ font-style:italic; color:var(--plum); }
+  .hero p.lede{
+    font-size:17px; margin-top:18px; max-width:56ch; color:var(--ink-soft);
+  }
+  .hero-stats{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:14px; margin-top:40px;
+  }
+  .hstat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:16px 18px;
+    box-shadow:var(--shadow-card);
+  }
+  .hstat .n{ font-family:'Fraunces',serif; font-size:24px; font-weight:600; color:var(--plum-deep); }
+  .hstat .l{ font-size:12px; color:var(--ink-faint); margin-top:2px; }
+
+  /* ============ Nav ============ */
+  nav.toc{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px) saturate(1.4);
+    border-bottom:1px solid var(--line);
+  }
+  .toc-inner{
+    max-width:var(--maxw); margin:0 auto; padding:0 24px;
+    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none;
+  }
+  .toc-inner::-webkit-scrollbar{ display:none; }
+  .toc-inner a{
+    flex:0 0 auto; padding:15px 15px 13px;
+    font-size:13.5px; font-weight:600; color:var(--ink-faint);
+    border-bottom:2.5px solid transparent; white-space:nowrap;
+  }
+  .toc-inner a:hover{ color:var(--coral-deep); }
+  .toc-inner a.active{ color:var(--plum-deep); border-bottom-color:var(--coral); }
+
+  main{ max-width:var(--maxw); margin:0 auto; padding:0 24px 100px; }
+
+  section.chapter{ padding-top:64px; }
+  .chapter-head{ max-width:640px; margin-bottom:34px; }
+  .chapter-num{
+    display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:0.04em;
+    color:var(--coral-deep); background:var(--coral-tint);
+    padding:4px 11px; border-radius:100px; margin-bottom:14px;
+  }
+  .chapter-title{ font-size:clamp(24px,3.4vw,34px); line-height:1.1; }
+  .chapter-lede{ font-size:15.5px; margin-top:12px; color:var(--ink-soft); }
+
+  h3.subhead{
+    font-size:19px; margin-top:38px; margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  h3.subhead::before{ content:''; width:22px; height:2px; background:var(--coral); border-radius:2px; }
+  p.note{ font-size:13.5px; color:var(--ink-faint); }
+
+  /* ============ Route cards (overview) ============ */
+  .route-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-top:22px; }
+  @media (max-width:980px){ .route-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:560px){ .route-grid{ grid-template-columns:1fr; } }
+  .route-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 18px; box-shadow:var(--shadow-card);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .route-card .swatch{ width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:17px; }
+  .route-card h4{ font-size:15px; line-height:1.25; }
+  .route-card .meta{ font-size:12px; color:var(--ink-faint); display:flex; flex-direction:column; gap:3px; margin-top:auto; }
+  .route-card .meta b{ color:var(--ink-soft); font-weight:600; }
+  .route-card .margin-pill{
+    align-self:flex-start; font-size:11px; font-weight:700; padding:3px 9px; border-radius:100px;
+  }
+
+  /* ============ Directory ============ */
+  .dir-toolbar{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    margin-bottom:20px; position:sticky; top:52px; z-index:20;
+    background:var(--bg); padding:10px 0;
+  }
+  .dir-search{
+    flex:1 1 220px; padding:11px 16px;
+    border:1.5px solid var(--line-strong); border-radius:100px;
+    background:var(--card); color:var(--ink); font-size:14px; font-family:inherit;
+  }
+  .dir-search:focus{ outline:none; border-color:var(--coral); }
+  .chip{
+    padding:9px 16px; font-size:13px; font-weight:600;
+    border:1.5px solid var(--line-strong); background:var(--card); color:var(--ink-soft);
+    border-radius:100px; cursor:pointer; white-space:nowrap; transition:all .15s;
+  }
+  .chip:hover{ border-color:var(--coral); }
+  .chip.active{ background:var(--plum-deep); color:#fff; border-color:var(--plum-deep); }
+
+  .dir-group-title{
+    font-family:'Fraunces',serif; font-size:19px; font-weight:600;
+    margin:38px 0 4px; display:flex; align-items:baseline; gap:10px;
+  }
+  .dir-group-title .count{ font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:600; color:var(--ink-faint); }
+  .dir-group-note{ font-size:13.5px; color:var(--ink-faint); margin-bottom:16px; max-width:68ch; }
+
+  .supplier-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  @media (max-width:760px){ .supplier-grid{ grid-template-columns:1fr; } }
+
+  .supplier{
+    border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--card); padding:19px 20px;
+    box-shadow:var(--shadow-card);
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .supplier-head{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+  .supplier-name{ font-family:'Fraunces',serif; font-weight:600; font-size:16.5px; line-height:1.25; }
+  .supplier-moq{
+    flex-shrink:0; font-size:11px; font-weight:700; color:var(--teal);
+    background:var(--teal-tint); padding:4px 9px; border-radius:100px; white-space:nowrap;
+  }
+  .supplier-addr{ font-size:13px; color:var(--ink-faint); display:flex; gap:6px; }
+  .supplier-addr .ic{ flex-shrink:0; opacity:0.7; }
+  .supplier-focus{ font-size:13.5px; color:var(--ink-soft); }
+  .supplier-tags{ display:flex; flex-wrap:wrap; gap:5px; margin-top:2px; }
+  .tag{
+    font-size:11px; padding:3px 9px; border-radius:100px;
+    background:var(--plum-tint); color:var(--plum-deep); font-weight:600;
+  }
+  .supplier-links{ display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; padding-top:10px; border-top:1px dashed var(--line-strong); }
+  .link-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:700; padding:7px 12px;
+    border-radius:100px; border:1.5px solid var(--line-strong);
+    color:var(--ink-soft); transition: all .15s;
+  }
+  .link-btn:hover{ transform:translateY(-1px); }
+  .link-btn.web{ border-color:var(--plum); color:var(--plum-deep); }
+  .link-btn.web:hover{ background:var(--plum); color:#fff; }
+  .link-btn.fb{ border-color:#4267B2; color:#4267B2; }
+  .link-btn.fb:hover{ background:#4267B2; color:#fff; }
+  .link-btn.wa{ border-color:var(--good); color:var(--good); }
+  .link-btn.wa:hover{ background:var(--good); color:#fff; }
+  .link-btn.tel{ border-color:var(--gold); color:var(--gold); }
+  .link-btn.tel:hover{ background:var(--gold); color:#fff; }
+  .no-results{ color:var(--ink-faint); font-size:14px; padding:50px 0; text-align:center; }
+
+  /* ============ Tables ============ */
+  .table-wrap{
+    overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius);
+    margin:18px 0 28px; box-shadow:var(--shadow-card);
+  }
+  table{ width:100%; border-collapse:collapse; font-size:13.8px; }
+  thead th{
+    text-align:left; font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:0.03em;
+    color:var(--ink-faint); background:var(--bg-warm); padding:12px 16px;
+    border-bottom:1px solid var(--line-strong); white-space:nowrap;
+  }
+  tbody td{ padding:13px 16px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top; }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:hover{ background:var(--bg-warm); }
+  td.strong{ color:var(--ink); font-weight:700; }
+
+  /* ============ Callouts ============ */
+  .callout{
+    border-radius:var(--radius); padding:16px 20px; margin:22px 0; max-width:74ch;
+    font-size:14px; color:var(--ink); display:flex; gap:12px; align-items:flex-start;
+    box-shadow:var(--shadow-card);
+  }
+  .callout.tip{ background:var(--teal-tint); border:1px solid color-mix(in srgb, var(--teal) 30%, transparent); }
+  .callout.warn{ background:var(--gold-tint); border:1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+  .callout .ic{ font-size:19px; flex-shrink:0; }
+  .callout strong{ color:var(--plum-deep); }
+  .callout.warn strong{ color:var(--coral-deep); }
+
+  /* ============ Calculator ============ */
+  .calc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:22px; }
+  @media (max-width:760px){ .calc-grid{ grid-template-columns:1fr; } }
+  .calc-panel{
+    border:1px solid var(--line); border-radius:var(--radius); background:var(--card);
+    padding:24px 24px; box-shadow:var(--shadow-card);
+  }
+  .calc-panel h4{ font-size:15px; margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  .field{ margin-bottom:15px; }
+  .field label{ display:block; font-size:12px; font-weight:600; color:var(--ink-faint); margin-bottom:6px; }
+  .field input, .field select{
+    width:100%; padding:10px 12px; border:1.5px solid var(--line-strong); border-radius:var(--radius-sm);
+    background:var(--bg-warm); color:var(--ink); font-size:14.5px; font-family:inherit;
+  }
+  .field input:focus, .field select:focus{ outline:none; border-color:var(--coral); }
+  .field input[type="range"]{ padding:0; accent-color:var(--coral); }
+  .field-row{ display:flex; gap:10px; }
+  .field-row .field{ flex:1; }
+  .range-labels{ display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-faint); margin-top:5px; }
+  .range-labels .val{ color:var(--coral-deep); font-weight:700; }
+
+  .result-line{ display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px dashed var(--line-strong); font-size:13.8px; }
+  .result-line:last-child{ border-bottom:none; }
+  .result-line .k{ color:var(--ink-faint); }
+  .result-line .v{ font-weight:700; color:var(--ink); font-family:ui-monospace,monospace; }
+
+  .result-hero{
+    background:linear-gradient(135deg, #0a0908 0%, #1a1610 55%, var(--gold) 130%);
+    border:1px solid var(--line-strong);
+    color:#f3ecdf; border-radius:var(--radius); padding:18px 20px;
+    display:flex; justify-content:space-between; align-items:center;
+    margin:18px 0; flex-wrap:wrap; gap:12px; box-shadow:var(--shadow-pop);
+  }
+  .result-hero .v{ color:var(--gold); }
+  .result-hero .k{ font-size:11px; opacity:0.8; text-transform:uppercase; letter-spacing:0.03em; font-weight:600; }
+  .result-hero .v{ font-family:'Fraunces',serif; font-size:23px; font-weight:600; }
+  .tax-breakdown{ display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:16px; font-size:12.5px; }
+  .tax-breakdown div{ color:var(--ink-faint); }
+  .tax-breakdown span{ color:var(--ink); font-weight:700; }
+
+  /* ============ Courier cards ============ */
+  .courier-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px; }
+  @media (max-width:760px){ .courier-grid{ grid-template-columns:1fr; } }
+  .courier-card{ border:1px solid var(--line); border-radius:var(--radius); background:var(--card); padding:20px 22px; box-shadow:var(--shadow-card); }
+  .courier-card h4{ font-size:16px; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  .courier-badge{ font-size:10.5px; font-weight:700; padding:3px 9px; border-radius:100px; background:var(--good-bg); color:var(--good); white-space:nowrap; }
+  .courier-card ul{ margin:14px 0 0; padding:0; list-style:none; font-size:13px; color:var(--ink-soft); }
+  .courier-card li{ padding:6px 0; border-top:1px dashed var(--line-strong); }
+  .courier-card li:first-child{ border-top:none; }
+  .courier-card li b{ color:var(--ink); }
+
+  /* ============ Checklist ============ */
+  .progress-bar-track{ height:8px; background:var(--line); border-radius:100px; overflow:hidden; margin-top:16px; }
+  .progress-bar-fill{ height:100%; background:linear-gradient(90deg,var(--coral),var(--plum)); width:0%; transition:width .3s; }
+  .checklist{ display:flex; flex-direction:column; gap:11px; margin-top:20px; }
+  .check-item{
+    display:flex; gap:13px; border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--card); padding:16px 18px; box-shadow:var(--shadow-card);
+  }
+  .check-item input[type="checkbox"]{ margin-top:3px; width:18px; height:18px; accent-color:var(--coral-deep); flex-shrink:0; }
+  .check-item .ct{ font-weight:700; font-size:14.5px; color:var(--ink); }
+  .check-item .cd{ font-size:13px; color:var(--ink-soft); margin-top:4px; }
+  code{ font-family:ui-monospace,monospace; font-size:0.87em; background:var(--bg-warm); padding:0.1em 0.4em; border-radius:4px; color:var(--coral-deep); }
+
+  /* ============ Roadmap ============ */
+  .roadmap{ display:flex; flex-direction:column; margin-top:24px; gap:0; }
+  .phase{
+    display:grid; grid-template-columns:150px 1fr; gap:24px;
+    padding:28px 0; border-top:1px solid var(--line); position:relative;
+  }
+  .phase:first-child{ border-top:none; }
+  .phase-when{ padding-top:4px; }
+  .phase-when .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:50%; background:var(--plum-deep); color:#fff;
+    font-family:'Fraunces',serif; font-weight:600; font-size:13.5px; margin-bottom:8px;
+  }
+  .phase-when .w{ font-size:12.5px; color:var(--ink-faint); font-weight:600; }
+  .phase-title{ font-size:18px; margin-bottom:12px; }
+  .phase ul{ margin:0; padding-left:18px; }
+  .phase li{ font-size:14px; color:var(--ink-soft); margin-bottom:8px; }
+  .phase li b{ color:var(--ink); }
+
+  footer{ border-top:1px solid var(--line); padding:36px 24px 50px; text-align:center; background:var(--bg-warm); }
+  footer p{ margin:0 auto; font-size:12.5px; color:var(--ink-faint); max-width:60ch; }
+
+  @media (max-width:640px){
+    .hero-stats{ grid-template-columns:repeat(2,1fr); }
+    .dir-toolbar{ position:static; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span>Sourcing &amp; Operations Guide</div>
+    <h1>Building a <em>ladies' bag</em> business in Dhaka</h1>
+    <p class="lede">Where to source, what import duty actually costs, which courier to trust with cash-on-delivery, and what's legally required to run an online shop in Bangladesh.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">$9.65B</div><div class="l">E-commerce market by 2029</div></div>
+      <div class="hstat"><div class="n">96.1%</div><div class="l">Tax on imported bags</div></div>
+      <div class="hstat"><div class="n">3M+</div><div class="l">Facebook-based sellers</div></div>
+      <div class="hstat"><div class="n">65–75%</div><div class="l">Orders paid by COD</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <a href="#overview" class="active">Overview</a>
+    <a href="#suppliers">Suppliers</a>
+    <a href="#import-duty">Import &amp; Duty</a>
+    <a href="#packaging">Packaging</a>
+    <a href="#delivery">Delivery</a>
+    <a href="#legal">Legal</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section class="chapter" id="overview">
+    <div class="chapter-head">
+      <span class="chapter-num">01 — Getting oriented</span>
+      <h2 class="chapter-title">Four ways to get stock</h2>
+      <p class="chapter-lede">Most sellers use more than one of these at once — cheap local wholesale to test what sells, then better suppliers once you know your bestsellers.</p>
+    </div>
+
+    <div class="route-grid">
+      <div class="route-card">
+        <div class="swatch" style="background:var(--coral-tint)">🧵</div>
+        <h4>Old Dhaka Wholesale</h4>
+        <p style="font-size:13px;margin:0">Chawkbazar &amp; Modina Ashik Tower — cheapest way to start.</p>
+        <span class="margin-pill" style="background:var(--good-bg);color:var(--good)">30–50% margin</span>
+        <div class="meta"><span><b>MOQ</b> 6–12 pcs</span><span><b>Risk</b> Very low</span></div>
+      </div>
+      <div class="route-card">
+        <div class="swatch" style="background:var(--plum-tint)">📦</div>
+        <h4>Corporate Suppliers</h4>
+        <p style="font-size:13px;margin:0">The Patchee BD, Wholesale Bag BD — consistent stock, less hassle.</p>
+        <span class="margin-pill" style="background:var(--good-bg);color:var(--good)">40–60% margin</span>
+        <div class="meta"><span><b>MOQ</b> 10–50 pcs</span><span><b>Risk</b> Low</span></div>
+      </div>
+      <div class="route-card">
+        <div class="swatch" style="background:var(--gold-tint)">🏭</div>
+        <h4>Local OEM / Private Label</h4>
+        <p style="font-size:13px;margin:0">NNT Bag Factory, Silme Bag — your own design, your own brand.</p>
+        <span class="margin-pill" style="background:var(--gold-tint);color:var(--gold)">60–100% margin</span>
+        <div class="meta"><span><b>MOQ</b> 100–1,000 pcs</span><span><b>Risk</b> Low–moderate</span></div>
+      </div>
+      <div class="route-card">
+        <div class="swatch" style="background:var(--teal-tint)">🐄</div>
+        <h4>Genuine Leather</h4>
+        <p style="font-size:13px;margin:0">Hazaribagh &amp; Savar tanneries — premium positioning.</p>
+        <span class="margin-pill" style="background:var(--teal-tint);color:var(--teal)">100–150% margin</span>
+        <div class="meta"><span><b>MOQ</b> 100+ pcs</span><span><b>Risk</b> Moderate</span></div>
+      </div>
+      <div class="route-card">
+        <div class="swatch" style="background:var(--bad-bg)">✈️</div>
+        <h4>Direct Import (China)</h4>
+        <p style="font-size:13px;margin:0">Guangzhou / Yiwu via door-to-door freight forwarder.</p>
+        <span class="margin-pill" style="background:var(--bad-bg);color:var(--bad)">96.1% tax hit</span>
+        <div class="meta"><span><b>MOQ</b> By volume</span><span><b>Risk</b> High</span></div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <span class="ic">💡</span>
+      <div><strong>Practical starting point</strong> — begin in Old Dhaka wholesale. It needs almost no capital and no import paperwork. Move to OEM or genuine leather once you know which styles actually sell.</div>
+    </div>
+  </section>
+
+  <!-- ============ SUPPLIERS ============ -->
+  <section class="chapter" id="suppliers">
+    <div class="chapter-head">
+      <span class="chapter-num">02 — Verified contacts</span>
+      <h2 class="chapter-title">Supplier directory</h2>
+      <p class="chapter-lede">Real names, addresses, phone numbers and — where they exist — official websites, Facebook pages and WhatsApp contacts. Small stalls change floors occasionally, so confirm before visiting.</p>
+    </div>
+
+    <div class="dir-toolbar">
+      <input type="text" class="dir-search" id="dirSearch" placeholder="🔍  Search by name, product, or area…" oninput="renderDirectory()">
+    </div>
+    <div class="dir-toolbar" id="dirChips" style="top:110px"></div>
+
+    <div id="dirOutput"></div>
+  </section>
+
+  <!-- ============ IMPORT & DUTY ============ -->
+  <section class="chapter" id="import-duty">
+    <div class="chapter-head">
+      <span class="chapter-num">03 — The numbers that matter</span>
+      <h2 class="chapter-title">Import duty &amp; landed cost</h2>
+      <p class="chapter-lede">Bangladesh protects its own leather and bag industry with a steep import tax. Any bag imported under HS code 4202.21 (leather) or 4202.22 (synthetic/PU/textile) is taxed almost double its port value.</p>
+    </div>
+
+    <h3 class="subhead">What makes up the 96.1% tax</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Rate</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Customs Duty (CD)</td><td>25.0%</td><td>Base import duty</td></tr>
+          <tr><td class="strong">Supplementary Duty (SD)</td><td>20.0%</td><td>Protective duty on this category</td></tr>
+          <tr><td class="strong">Value Added Tax (VAT)</td><td>15.0%</td><td>Standard VAT</td></tr>
+          <tr><td class="strong">Advance Tax (AT)</td><td>7.5%</td><td>Can vary by fiscal year (sometimes 3%)</td></tr>
+          <tr><td class="strong">Advance Income Tax (AIT)</td><td>5.0%</td><td>Credited against income tax later</td></tr>
+          <tr><td class="strong">Regulatory Duty (RD)</td><td>5.0%</td><td>Applied on top of CD</td></tr>
+          <tr><td class="strong">Total Tax Incidence</td><td class="strong" style="color:var(--coral-deep)">96.1%</td><td>Applied to CIF value, not just item price</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Tax is charged on the <b style="color:var(--ink)">CIF value</b> — item cost plus freight plus insurance. A $10 bag with $2 shipping becomes a $12 taxable base, adding roughly $11.53 in duty before it clears the port.</p>
+
+    <h3 class="subhead">Landed cost calculator</h3>
+    <p class="note">Enter your numbers to see the real cost per unit after tax, freight, and currency conversion.</p>
+
+    <div class="calc-grid">
+      <div class="calc-panel">
+        <h4>Shipment details</h4>
+        <div class="field">
+          <label for="calcFob">Factory price per unit (USD)</label>
+          <input type="number" id="calcFob" value="10.00" step="0.50" oninput="calculateImportCost()">
+        </div>
+        <div class="field">
+          <label for="calcFreight">Freight + insurance per unit (USD)</label>
+          <input type="number" id="calcFreight" value="2.00" step="0.25" oninput="calculateImportCost()">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="calcUsdRate">USD → BDT rate</label>
+            <input type="number" id="calcUsdRate" value="122.00" step="0.50" oninput="calculateImportCost()">
+          </div>
+          <div class="field">
+            <label for="calcMode">Freight mode</label>
+            <select id="calcMode" onchange="calculateImportCost()">
+              <option value="air">Air (7–12 days)</option>
+              <option value="sea">Sea (30–45 days)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="calcMarkup">Target retail markup — <span class="val" id="calcMarkupVal">2.2×</span></label>
+          <input type="range" id="calcMarkup" min="1.5" max="3.5" step="0.1" value="2.2" oninput="calculateImportCost()">
+          <div class="range-labels"><span>1.5×</span><span>3.5×</span></div>
+        </div>
+      </div>
+
+      <div class="calc-panel">
+        <h4>Landed cost result</h4>
+        <div class="result-line"><span class="k">CIF value (port base)</span><span class="v" id="resCifBoth">$12.00 · 1,464 BDT</span></div>
+        <div class="result-line"><span class="k">Customs tax (96.1%)</span><span class="v" id="resTaxBoth">$11.53 · 1,407 BDT</span></div>
+        <div class="result-line"><span class="k">Total landed cost / unit</span><span class="v" id="resLandedBoth">$23.53 · 2,871 BDT</span></div>
+
+        <div class="result-hero">
+          <div><div class="k">Suggested retail price</div><div class="v" id="resSrpBdt">6,316 BDT</div></div>
+          <div><div class="k">Gross margin / unit</div><div class="v" id="resGrossMargin" style="font-size:17px">3,445 BDT</div></div>
+        </div>
+
+        <div class="tax-breakdown">
+          <div>CD 25% — <span id="taxCd">366 BDT</span></div>
+          <div>SD 20% — <span id="taxSd">380 BDT</span></div>
+          <div>VAT 15% — <span id="taxVat">342 BDT</span></div>
+          <div>AT 7.5% — <span id="taxAt">110 BDT</span></div>
+          <div>AIT 5% — <span id="taxAit">73 BDT</span></div>
+          <div>RD 5% — <span id="taxRd">73 BDT</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="ic">⚠️</span>
+      <div><strong>Watch for hidden charges.</strong> Freight forwarders who quote a very low rate per kg often pass the 96.1% duty, port demurrage, and local delivery on to you separately once the goods arrive. Ask for an "all-inclusive" door-to-door rate in writing before you ship.</div>
+    </div>
+  </section>
+
+  <!-- ============ PACKAGING & TRIMS ============ -->
+  <section class="chapter" id="packaging">
+    <div class="chapter-head">
+      <span class="chapter-num">04 — The finishing touch</span>
+      <h2 class="chapter-title">Hardware, trims &amp; packaging</h2>
+      <p class="chapter-lede">A bag's perceived quality often comes down to its zippers and its unboxing — not the shell fabric. These are sourced locally, cheaply, and can be branded once volume justifies it.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>What</th><th>Source</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Zippers, buttons, buckles</td><td>Mehedi Garments Accessories (Sadarghat); Rabeya Enterprise (Chawkbazar)</td><td>Wholesale, generic hardware</td></tr>
+          <tr><td class="strong">Branded metal hardware</td><td>SAJ Accessories BD</td><td>Custom tack buttons, D-rings, buckles at volume</td></tr>
+          <tr><td class="strong">Corrugated mailer boxes</td><td>JobaidaPack, WrapUp BD</td><td>3-ply/5-ply, die-cut, low MOQ from ~25–100 pcs</td></tr>
+          <tr><td class="strong">Dust bags</td><td>WrapUp BD</td><td>Non-woven, printed, MOQ ~100 pcs</td></tr>
+          <tr><td class="strong">Poly bags &amp; silica gel</td><td>Tahmid &amp; Twalha Accessories, N. Biswas Group</td><td>Moisture protection for storage</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout tip">
+      <span class="ic">🎁</span>
+      <div>A printed dust bag at 100-piece MOQ is one of the cheapest ways to make a plain PU bag feel like a branded product — worth doing as soon as you have a repeat style.</div>
+    </div>
+  </section>
+
+  <!-- ============ DELIVERY ============ -->
+  <section class="chapter" id="delivery">
+    <div class="chapter-head">
+      <span class="chapter-num">05 — Last mile</span>
+      <h2 class="chapter-title">Delivery &amp; cash-on-delivery risk</h2>
+      <p class="chapter-lede">Because most orders are paid on delivery, your courier is effectively your cashier. Pricing is similar across the three national couriers — the real difference is in refused-delivery (RTO) rates.</p>
+    </div>
+
+    <div class="courier-grid">
+      <div class="courier-card">
+        <h4>Pathao <span class="courier-badge">Fastest in Dhaka</span></h4>
+        <ul>
+          <li><b>Inside Dhaka:</b> 60–70 BDT</li>
+          <li><b>Outside Dhaka:</b> 100–130 BDT</li>
+          <li><b>COD fee:</b> 0.5% Dhaka / 1% outside</li>
+          <li><b>Payout:</b> 1–2 business days</li>
+        </ul>
+      </div>
+      <div class="courier-card">
+        <h4>Steadfast <span class="courier-badge">Merchant favorite</span></h4>
+        <ul>
+          <li><b>Inside Dhaka:</b> 55–65 BDT</li>
+          <li><b>Outside Dhaka:</b> 100–120 BDT</li>
+          <li><b>COD fee:</b> 1% flat</li>
+          <li><b>Payout:</b> 2–3 business days</li>
+        </ul>
+      </div>
+      <div class="courier-card">
+        <h4>RedX <span class="courier-badge">Widest coverage</span></h4>
+        <ul>
+          <li><b>Inside Dhaka:</b> 65–75 BDT</li>
+          <li><b>Outside Dhaka:</b> 90–120 BDT</li>
+          <li><b>COD fee:</b> 1% (occasional 0% promos)</li>
+          <li><b>Payout:</b> 1–3 business days</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="subhead">Return-to-origin (RTO) impact calculator</h3>
+    <p class="note">Every refused parcel costs you the outbound delivery fee plus a return penalty. Model your real margin per order here.</p>
+
+    <div class="calc-grid">
+      <div class="calc-panel">
+        <h4>Order details</h4>
+        <div class="field-row">
+          <div class="field">
+            <label for="rtoSrp">Selling price (BDT)</label>
+            <input type="number" id="rtoSrp" value="1800" step="50" oninput="calculateRtoImpact()">
+          </div>
+          <div class="field">
+            <label for="rtoCost">Sourcing cost (BDT)</label>
+            <input type="number" id="rtoCost" value="850" step="50" oninput="calculateRtoImpact()">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="rtoLoc">Customer location</label>
+            <select id="rtoLoc" onchange="calculateRtoImpact()">
+              <option value="dhaka">Inside Dhaka</option>
+              <option value="outside">Outside Dhaka</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rtoRate">Estimated RTO rate (%)</label>
+            <input type="number" id="rtoRate" value="12" min="0" max="40" oninput="calculateRtoImpact()">
+          </div>
+        </div>
+      </div>
+      <div class="calc-panel">
+        <h4>Real margin per order</h4>
+        <div class="result-line"><span class="k">Delivery + COD charge</span><span class="v" id="resDeliveryFee">83 BDT</span></div>
+        <div class="result-line"><span class="k">Avg. RTO loss / order</span><span class="v" id="resRtoPenalty" style="color:var(--bad)">12.6 BDT</span></div>
+        <div class="result-hero">
+          <div><div class="k">Real net margin / order</div><div class="v" id="resRealNetMargin">854 BDT</div></div>
+        </div>
+        <p class="note" style="margin-top:12px">Tip: phone-confirming every order and checking a customer's delivery history (Steadfast's dashboard shows this) typically keeps RTO under 8%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEGAL & PAYMENTS ============ -->
+  <section class="chapter" id="legal">
+    <div class="chapter-head">
+      <span class="chapter-num">06 — Staying compliant</span>
+      <h2 class="chapter-title">Legal registration &amp; payments</h2>
+      <p class="chapter-lede">F-commerce is now formally regulated. These five items cover trade licensing, digital ID, delivery-time rules, and how to legally fund Meta ad spend.</p>
+    </div>
+
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="legalProgressBar"></div></div>
+    <p class="note" id="legalProgressText" style="margin-top:8px">0 of 5 completed</p>
+
+    <div class="checklist">
+      <div class="check-item">
+        <input type="checkbox" id="chk1" onchange="updateLegalProgress()">
+        <div>
+          <div class="ct">E-trade license (DNCC / DSCC)</div>
+          <div class="cd">Apply online via <code>erevenue.dncc.gov.bd</code> or <code>erevenue.dscc.gov.bd</code>. Base fee ~2,000 BDT + 15% VAT + signboard tax (80 BDT/sq ft). Annual renewal runs roughly 2,800–4,174 BDT.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="chk2" onchange="updateLegalProgress()">
+        <div>
+          <div class="ct">Digital Business ID (DBID)</div>
+          <div class="cd">Mandatory registration with the Ministry of Commerce for e-commerce/F-commerce sellers. Display the DBID number on your storefront or Facebook page.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="chk3" onchange="updateLegalProgress()">
+        <div>
+          <div class="ct">2021 Digital Commerce Guidelines</div>
+          <div class="cd">Terms and refund policy must be in Bangla. Hand over to courier within 48 hours. Max delivery: 5 days same-city, 10 days inter-district. Refund out-of-stock orders within 72 hours.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="chk4" onchange="updateLegalProgress()">
+        <div>
+          <div class="ct">Dual-currency card &amp; passport endorsement</div>
+          <div class="cd">Needed to pay for Meta ads. Passport endorsement against your travel quota is capped at 300 BDT by Bangladesh Bank.</div>
+        </div>
+      </div>
+      <div class="check-item">
+        <input type="checkbox" id="chk5" onchange="updateLegalProgress()">
+        <div>
+          <div class="ct">15% VAT on ad spend</div>
+          <div class="cd">NBR charges 15% VAT automatically on Facebook/Meta ad payments through your bank. Build this into your customer acquisition cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="subhead">Getting paid</h3>
+    <p>A registered <b style="color:var(--ink)">bKash Merchant Account</b> is worth setting up early rather than using a personal account — it gives you QR codes, a merchant app, and settlement fees around 1.15–1.35%, and it signals legitimacy to customers and banks alike.</p>
+  </section>
+
+  <!-- ============ ROADMAP ============ -->
+  <section class="chapter" id="roadmap">
+    <div class="chapter-head">
+      <span class="chapter-num">07 — Putting it together</span>
+      <h2 class="chapter-title">A three-phase path</h2>
+      <p class="chapter-lede">The lowest-risk way to build this business is to start cheap and local, then reinvest once you know what sells.</p>
+    </div>
+
+    <div class="roadmap">
+      <div class="phase">
+        <div class="phase-when"><div class="num">1</div><div class="w">Months 1–3</div></div>
+        <div>
+          <div class="phase-title">Proof of concept</div>
+          <ul>
+            <li><b>Sourcing:</b> Buy small batches from Chawkbazar (Modina Ashik Tower) or a corporate supplier like The Patchee BD.</li>
+            <li><b>Legal:</b> Get your DNCC/DSCC trade license and set up a bKash merchant account.</li>
+            <li><b>Photos:</b> Basic white-background product shots — this matters more than most people expect.</li>
+            <li><b>Delivery:</b> Onboard with Steadfast or Pathao for COD.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-when"><div class="num">2</div><div class="w">Months 4–9</div></div>
+        <div>
+          <div class="phase-title">Systematize</div>
+          <ul>
+            <li><b>Ads:</b> Layer Meta targeting — e.g. women 25–45 combined with "engaged shoppers."</li>
+            <li><b>Response time:</b> Automate Messenger replies so leads aren't lost overnight.</li>
+            <li><b>Packaging:</b> Move to custom mailer boxes and printed dust bags.</li>
+            <li><b>RTO control:</b> Phone-verify orders to keep refusal rate under 8%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-when"><div class="num">3</div><div class="w">Month 10+</div></div>
+        <div>
+          <div class="phase-title">Scale into your own brand</div>
+          <ul>
+            <li><b>Manufacturing:</b> Partner with an OEM factory (NNT Bag Factory, or BLJ for leather at 100-pc MOQ) for your own designs.</li>
+            <li><b>Import:</b> Use a door-to-door freight forwarder for unique items from Guangzhou.</li>
+            <li><b>Quality control:</b> Use a third-party inspector (SGS, Tetra Inspection) before large orders ship.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Compiled from Dhaka wholesale market research, Bangladesh Customs (NBR) tariff schedules, and courier rate cards. Contact details for small vendors can change — confirm before visiting or wiring payment.</p>
+</footer>
+
+<script>
+/* ============ Supplier data ============ */
+const suppliersData = [
+  // Old Dhaka wholesale — Chawkbazar / Modina Ashik Tower
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"New Top Ten", address:"Shop 386–387, Floor 3, Modina Ashik Tower, Chawkbazar, Dhaka",
+    phone:"01715231117", phoneDisplay:"01715-231117", focus:"Ladies handbags, shoulder bags, school bags", moq:"6–12 pcs",
+    tags:["Synthetic PU","Entry pricing"], links:{} },
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"Bag Heaven", address:"Shop 457–458, Floor 4, Madina Ashik Tower, Chawkbazar, Dhaka",
+    phone:"01969578938", phoneDisplay:"01969-578938", focus:"Imported PU leather bags, premium synthetics", moq:"12 pcs",
+    tags:["Direct importer","Trending designs"], links:{} },
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"Altaf Bin Monir Bag Gallery", address:"Shop 10–11 (Underground-2), Medina Ashiq Tower, Chawkbazar",
+    phone:"01819448814", phoneDisplay:"01819-448814", focus:"Wholesale ladies bags, utility bags", moq:"12 pcs",
+    tags:["Bulk wholesale","Budget bags"], links:{} },
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"Popular Bag House", address:"Momtaz Tower, Chawkbazar, Old Dhaka",
+    phone:"01850586084", phoneDisplay:"01850-586084", focus:"Ladies bags, trolley bags, travel bags", moq:"Trolleys from ~650 BDT",
+    tags:["Trolleys","Travel totes"], links:{} },
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"Moktar Bag Store", address:"M Hossain Plaza (3rd Floor), West of AC Mosque, Chawkbazar",
+    phone:"01711261500", phoneDisplay:"01711-261500", focus:"Low-cost backpacks, luggage, standard purses", moq:"12 pcs",
+    tags:["Budget backpacks"], links:{} },
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"BR Bag", address:"Chawkbazar (general area), Dhaka",
+    phone:"01851118389", phoneDisplay:"01851-118389", focus:"General ladies bags, school bags", moq:"12 pcs",
+    tags:["General wholesale"], links:{} },
+  { group:"Old Dhaka Wholesale — Chawkbazar", category:"CHAWKBAZAR",
+    name:"Nobel Bag", address:"Shamsul Haque Tower, Basement 1, Shop 102, Chawkbazar",
+    phone:"01941582359", phoneDisplay:"01941-582359", focus:"Ladies bags, sling bags, travel totes", moq:"12 pcs",
+    tags:["Sling bags","Travel totes"], links:{} },
+
+  // Corporate & OEM
+  { group:"Corporate Suppliers & OEM Manufacturers", category:"CORPORATE",
+    name:"The Patchee BD", address:"House 70, Road 13, Sector 13, Uttara, Dhaka",
+    phone:"8801627280575", phoneDisplay:"+880 1627-280575", focus:"Bulk shoulder bags, totes, clutches — canvas, corduroy, PU. 65K+ Instagram following, active online store.", moq:"10–20 pcs",
+    tags:["E-com specialist","Custom logo"],
+    links:{ web:"https://thepatchee.com", fb:"https://www.facebook.com/thepatchee.bd/", wa:"https://wa.me/8801627280575" } },
+  { group:"Corporate Suppliers & OEM Manufacturers", category:"CORPORATE",
+    name:"Wholesale Bag BD", address:"427/17-D, Jhaawchar, Hazaribagh, Dhaka",
+    phone:"01919921771", phoneDisplay:"01919-921771", focus:"Direct importer + domestic manufacturer of backpacks, jute bags", moq:"10 pcs",
+    tags:["Importer + OEM","Custom branding"],
+    links:{ web:"https://wholesalebagbd.com" } },
+  { group:"Corporate Suppliers & OEM Manufacturers", category:"CORPORATE",
+    name:"NNT Bag Factory", address:"Dhaka — corporate headquarters",
+    phone:"", phoneDisplay:"See website", focus:"Full-scale OEM manufacturing — backpacks, PU crossbody, embroidery", moq:"100 pcs",
+    tags:["Private label OEM","Factory direct"],
+    links:{ web:"https://nnt.com.bd" } },
+  { group:"Corporate Suppliers & OEM Manufacturers", category:"CORPORATE",
+    name:"Silme Bag Industries Ltd.", address:"Dhaka — corporate headquarters",
+    phone:"01974446001", phoneDisplay:"01974-446001", focus:"SEDEX-certified jute, organic cotton, non-woven bags", moq:"1,000 pcs",
+    tags:["SEDEX certified","Sustainable"],
+    links:{ web:"https://silmebag.com" } },
+
+  // Genuine leather
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"Dhaka Leather Export", address:"Zigatola, Dhaka / Hazaribagh Leather Industrial Area",
+    phone:"01896178182", phoneDisplay:"01896-178182", focus:"Crocodile-embossed handbags, beige leather shoulder bags", moq:"On request",
+    tags:["Premium leather"],
+    links:{ web:"https://dhakaleatherexport.com" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"BAG-BD", address:"Sher-E-Bangla Road, Hazaribagh, Dhaka",
+    phone:"01716638144", phoneDisplay:"01716-638144", focus:"Engineer-led leather processing, ODM/OEM production", moq:"On request",
+    tags:["ODM / OEM"],
+    links:{ web:"https://bag-bd.com" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"Leather Industries of Bangladesh (LIB)", address:"Sher-E-Bangla Road, Hazaribagh / BSCIC Savar",
+    phone:"01713609241", phoneDisplay:"01713-609241", focus:"Handicraft and braided leather ladies' bags", moq:"On request",
+    tags:["Handicraft leather"],
+    links:{ web:"https://libltd.net" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"BLJ Bangladesh Corp (BLJ OEM)", address:"Belma, Ashulia, Savar / Office: Mirpur DOHS",
+    phone:"", phoneDisplay:"See website", focus:"Japanese-managed factory, ISO 14001:2015 certified, very low MOQ", moq:"100 pcs",
+    tags:["Japanese QC","Low MOQ leather"],
+    links:{ web:"https://en.bljoem.com" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"Alliance Leather Goods & Footwear Ltd.", address:"Chandertek, Satarkul, Badda, Dhaka",
+    phone:"", phoneDisplay:"Email contact", focus:"High-volume, BSCI / SEDEX / ISO 9001:2015 certified", moq:"High volume",
+    tags:["Export-grade","BSCI / SEDEX"],
+    links:{ web:"https://alliancefootwearbd.com" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"Bovine Leather", address:"YS-6D, BSCIC Estate, Hemayetpur, Savar",
+    phone:"01712014191", phoneDisplay:"01712-014191", focus:"Crust and finished leather processing", moq:"On request",
+    tags:["Raw & finished leather"],
+    links:{ web:"https://bovineleather.org" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"RK Leather BD", address:"135/A Hazaribagh / Plot XE-5, BSCIC Savar",
+    phone:"01683312510", phoneDisplay:"01683-312510", focus:"General leather manufacturing and supply", moq:"On request",
+    tags:["General leather"],
+    links:{ web:"https://rkleatherbd.com" } },
+  { group:"Genuine Leather — Hazaribagh & Savar", category:"LEATHER",
+    name:"SFF Leather BD", address:"Hazaribagh, Dhaka",
+    phone:"01742819171", phoneDisplay:"01742-819171", focus:"Finished leather supply and manufacturing", moq:"On request",
+    tags:["Finished leather"],
+    links:{ web:"https://sffleatherbd.com" } },
+
+  // Hardware & packaging
+  { group:"Hardware, Trims & Packaging", category:"PACKAGING",
+    name:"Mehedi Garments Accessories", address:"Avenue City Plaza, Sadarghat, Dhaka",
+    phone:"", phoneDisplay:"Visit in person", focus:"Generic zippers, metal buttons, snap fasteners", moq:"Wholesale lots",
+    tags:["Zippers","Hardware"], links:{} },
+  { group:"Hardware, Trims & Packaging", category:"PACKAGING",
+    name:"Rabeya Enterprise", address:"Bismillah Tower, Chawkbazar, Dhaka",
+    phone:"", phoneDisplay:"See website", focus:"Nylon zipper chains, metal fasteners", moq:"Wholesale lots",
+    tags:["Zippers","Hardware"],
+    links:{ web:"https://rabeyaenterprise.com" } },
+  { group:"Hardware, Trims & Packaging", category:"PACKAGING",
+    name:"SAJ Accessories BD", address:"Dhaka",
+    phone:"", phoneDisplay:"See website", focus:"Metal tack buttons, buckles, heavy-duty zippers at scale", moq:"Volume production",
+    tags:["Branded hardware"],
+    links:{ web:"https://sajaccessoriesbd.com" } },
+  { group:"Hardware, Trims & Packaging", category:"PACKAGING",
+    name:"JobaidaPack", address:"Dhaka",
+    phone:"", phoneDisplay:"See website", focus:"Custom corrugated boxes, master cartons, mailer boxes", moq:"Factory MOQ",
+    tags:["Corrugated boxes"],
+    links:{ web:"https://jobaidapack.com" } },
+  { group:"Hardware, Trims & Packaging", category:"PACKAGING",
+    name:"WrapUp BD", address:"Dhaka",
+    phone:"", phoneDisplay:"See website", focus:"Die-cut mailer boxes, printed dust bags", moq:"25–100 pcs",
+    tags:["Dust bags","Low MOQ"],
+    links:{ web:"https://wrapupbd.com" } },
+  { group:"Hardware, Trims & Packaging", category:"PACKAGING",
+    name:"Tahmid & Twalha Accessories", address:"Dhaka",
+    phone:"", phoneDisplay:"See website", focus:"Poly bags, silica gel packets for storage protection", moq:"Wholesale lots",
+    tags:["Poly bags"],
+    links:{ web:"https://tahmidntwalha-apl.com" } },
+];
+
+const categoryLabels = {
+  ALL: "All suppliers",
+  CHAWKBAZAR: "Chawkbazar wholesale",
+  CORPORATE: "Corporate & OEM",
+  LEATHER: "Genuine leather",
+  PACKAGING: "Hardware & packaging"
+};
+
+let activeCategory = "ALL";
+
+function setDirectoryCategory(cat){
+  activeCategory = cat;
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.cat === cat));
+  renderDirectory();
+}
+
+function buildChips(){
+  const wrap = document.getElementById('dirChips');
+  wrap.innerHTML = Object.keys(categoryLabels).map(cat =>
+    `<button class="chip${cat==='ALL' ? ' active':''}" data-cat="${cat}" onclick="setDirectoryCategory('${cat}')">${categoryLabels[cat]}</button>`
+  ).join('');
+}
+
+function linkButtons(s){
+  let out = '';
+  if (s.links.web) out += `<a class="link-btn web" href="${s.links.web}" target="_blank" rel="noopener">🌐 Website</a>`;
+  if (s.links.fb) out += `<a class="link-btn fb" href="${s.links.fb}" target="_blank" rel="noopener">📘 Facebook</a>`;
+  if (s.links.wa) out += `<a class="link-btn wa" href="${s.links.wa}" target="_blank" rel="noopener">💬 WhatsApp</a>`;
+  if (s.phone) out += `<a class="link-btn tel" href="tel:+880${s.phone.replace(/^0/,'')}">📞 ${s.phoneDisplay}</a>`;
+  else if (!s.links.web && !s.links.fb) out += `<span class="link-btn tel" style="cursor:default">📞 ${s.phoneDisplay}</span>`;
+  return out;
+}
+
+function renderDirectory(){
+  const q = document.getElementById('dirSearch').value.trim().toLowerCase();
+  const filtered = suppliersData.filter(s => {
+    const matchesCat = activeCategory === 'ALL' || s.category === activeCategory;
+    const hay = (s.name + ' ' + s.address + ' ' + s.focus + ' ' + s.phoneDisplay + ' ' + s.tags.join(' ')).toLowerCase();
+    const matchesQ = q === '' || hay.includes(q);
+    return matchesCat && matchesQ;
+  });
+
+  const out = document.getElementById('dirOutput');
+  if (filtered.length === 0){
+    out.innerHTML = '<div class="no-results">No suppliers match that search.</div>';
+    return;
+  }
+
+  const groups = [];
+  filtered.forEach(s => { if (!groups.includes(s.group)) groups.push(s.group); });
+
+  out.innerHTML = groups.map(g => {
+    const items = filtered.filter(s => s.group === g);
+    return `
+      <div class="dir-group-title">${g}<span class="count">${items.length}</span></div>
+      <div class="supplier-grid">
+      ${items.map(s => `
+        <div class="supplier">
+          <div class="supplier-head">
+            <div class="supplier-name">${s.name}</div>
+            <div class="supplier-moq">MOQ ${s.moq}</div>
+          </div>
+          <div class="supplier-addr"><span class="ic">📍</span>${s.address}</div>
+          <div class="supplier-focus">${s.focus}</div>
+          <div class="supplier-tags">${s.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          <div class="supplier-links">${linkButtons(s)}</div>
+        </div>
+      `).join('')}
+      </div>
+    `;
+  }).join('');
+}
+
+/* ============ Landed cost calculator ============ */
+function calculateImportCost(){
+  const fob = parseFloat(document.getElementById('calcFob').value) || 0;
+  const freight = parseFloat(document.getElementById('calcFreight').value) || 0;
+  const usdRate = parseFloat(document.getElementById('calcUsdRate').value) || 122;
+  const markup = parseFloat(document.getElementById('calcMarkup').value) || 2.2;
+
+  document.getElementById('calcMarkupVal').innerText = `${markup.toFixed(1)}×`;
+
+  const cif = fob + freight;
+  const cd = cif * 0.25;
+  const rd = cif * 0.05;
+  const cifPlusCdRd = cif + cd + rd;
+  const sd = cifPlusCdRd * 0.20;
+  const base3 = cifPlusCdRd + sd;
+  const vat = base3 * 0.15;
+  const ait = base3 * 0.05;
+  const at = base3 * 0.075;
+
+  const totalTax = cd + rd + sd + vat + ait + at;
+  const landedUsd = cif + totalTax;
+  const landedBdt = landedUsd * usdRate;
+  const cifBdt = cif * usdRate;
+  const taxBdt = totalTax * usdRate;
+
+  const srpBdt = landedBdt * markup;
+  const grossMargin = srpBdt - landedBdt;
+
+  document.getElementById('resCifBoth').innerText = `$${cif.toFixed(2)} · ${Math.round(cifBdt).toLocaleString()} BDT`;
+  document.getElementById('resTaxBoth').innerText = `$${totalTax.toFixed(2)} · ${Math.round(taxBdt).toLocaleString()} BDT`;
+  document.getElementById('resLandedBoth').innerText = `$${landedUsd.toFixed(2)} · ${Math.round(landedBdt).toLocaleString()} BDT`;
+  document.getElementById('resSrpBdt').innerText = `${Math.round(srpBdt).toLocaleString()} BDT`;
+  document.getElementById('resGrossMargin').innerText = `${Math.round(grossMargin).toLocaleString()} BDT`;
+
+  document.getElementById('taxCd').innerText = `${Math.round(cd*usdRate).toLocaleString()} BDT`;
+  document.getElementById('taxRd').innerText = `${Math.round(rd*usdRate).toLocaleString()} BDT`;
+  document.getElementById('taxSd').innerText = `${Math.round(sd*usdRate).toLocaleString()} BDT`;
+  document.getElementById('taxVat').innerText = `${Math.round(vat*usdRate).toLocaleString()} BDT`;
+  document.getElementById('taxAit').innerText = `${Math.round(ait*usdRate).toLocaleString()} BDT`;
+  document.getElementById('taxAt').innerText = `${Math.round(at*usdRate).toLocaleString()} BDT`;
+}
+
+/* ============ RTO impact calculator ============ */
+function calculateRtoImpact(){
+  const srp = parseFloat(document.getElementById('rtoSrp').value) || 0;
+  const cost = parseFloat(document.getElementById('rtoCost').value) || 0;
+  const loc = document.getElementById('rtoLoc').value;
+  const rtoRate = (parseFloat(document.getElementById('rtoRate').value) || 0) / 100;
+
+  const courierBase = (loc === 'dhaka') ? 65 : 110;
+  const codCharge = srp * 0.01;
+  const totalDeliveryFee = courierBase + codCharge;
+
+  const returnPenalty = courierBase * 1.5;
+  const avgRtoLossPerOrder = returnPenalty * rtoRate;
+
+  const realNetMargin = (srp - cost - totalDeliveryFee) - avgRtoLossPerOrder;
+
+  document.getElementById('resDeliveryFee').innerText = `${Math.round(totalDeliveryFee)} BDT`;
+  document.getElementById('resRtoPenalty').innerText = `${avgRtoLossPerOrder.toFixed(1)} BDT`;
+  document.getElementById('resRealNetMargin').innerText = `${Math.round(realNetMargin)} BDT`;
+}
+
+/* ============ Legal checklist ============ */
+function updateLegalProgress(){
+  const boxes = ['chk1','chk2','chk3','chk4','chk5'].map(id => document.getElementById(id));
+  const checked = boxes.filter(b => b.checked).length;
+  const pct = Math.round((checked/boxes.length)*100);
+  document.getElementById('legalProgressText').innerText = `${checked} of ${boxes.length} completed (${pct}%)`;
+  document.getElementById('legalProgressBar').style.width = `${pct}%`;
+}
+
+/* ============ Nav active-state on scroll ============ */
+function setupScrollSpy(){
+  const links = Array.from(document.querySelectorAll('.toc-inner a'));
+  const sections = links.map(l => document.querySelector(l.getAttribute('href')));
+  window.addEventListener('scroll', () => {
+    let idx = 0;
+    const scrollY = window.scrollY + 100;
+    sections.forEach((sec, i) => { if (sec && sec.offsetTop <= scrollY) idx = i; });
+    links.forEach((l, i) => l.classList.toggle('active', i === idx));
+  }, { passive: true });
+}
+
+/* ============ Init ============ */
+window.onload = function(){
+  buildChips();
+  renderDirectory();
+  calculateImportCost();
+  calculateRtoImpact();
+  setupScrollSpy();
+};
+</script>
+
+</body>
+</html>
