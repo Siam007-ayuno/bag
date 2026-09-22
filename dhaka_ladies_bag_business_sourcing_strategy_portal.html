@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhaka Ladies Bag E-Commerce Sourcing & Business Navigator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                        },
+                        stonebg: '#fcfbf9'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .tab-btn.active {
+            border-bottom-color: #be123c;
+            color: #be123c;
+            font-weight: 600;
+        }
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<!-- Chosen Palette: Warm Sand & Rose Gold Professional (bg-stonebg, brand-700/800 accents, dark charcoal text) -->
+<!-- Application Structure Plan:
+    1. Navigation Bar & Key Macro Metrics Header: Fast summary of macroeconomic projections ($9.65B e-com market, 96.1% tariff, 65-75% COD).
+    2. Executive Dashboard: Interactive Macro Projections Chart, Landed Cost Overview, Sourcing Route Comparison Matrix.
+    3. Interactive Supplier & Wholesale Directory: Filterable & searchable table/cards for 25+ profiled suppliers in Old Dhaka (Chawkbazar/Modina Ashik), Corporate Importers, OEM Factories, Genuine Leather Tanneries (Savar/Hazaribagh), and Ancillary Hardware/Packaging.
+    4. Customs Tariff & Landed Cost Calculator: Real-time unit economics tool for calculating CIF, 96.10% TTI (CD, SD, VAT, AIT, RD, AT), air/sea freight, and local landed BDT.
+    5. Courier & Logistics Economics Evaluator: Interactive profit margin and RTO loss calculator comparing Pathao, Steadfast, and RedX.
+    6. Legal & Operational Roadmap: Step-by-step interactive checklist for Trade Licenses (DNCC/DSCC), DBID, 2021 Digital Commerce Guidelines, and Meta Ad VAT rules.
+    7. 3-Phase Execution Roadmap & Marketing Planner: Structured timeline for launching, scaling, and establishing brand equity.
+    RATIONALE: Instead of reading a static text report, entrepreneurs can dynamically filter suppliers, calculate exact unit economics for imported vs domestic stock, compare courier fees, and check regulatory readiness on a single intuitive page.
+-->
+<!-- Visualization & Content Choices:
+    - Executive Macro Chart -> Chart.js Bar/Line -> Dynamic projection of Bangladesh E-Com Market Growth (2025-2029).
+    - Landed Duty Breakdown Chart -> Chart.js Donut -> Visualizing the massive 96.10% Total Tax Incidence breakdown (CD, SD, VAT, etc.).
+    - Courier Cost Comparison -> Chart.js Bar Chart -> Inside vs Outside Dhaka delivery fees across Pathao, Steadfast, RedX.
+    - Sourcing Strategy Matrix -> Dynamic HTML Grid -> Comparing MOQs, Lead Time, Risk, Margin Potential across local wholesale vs OEM vs imports.
+    - Searchable Directory -> HTML/JS Dynamic Cards with Filter Badges -> Allows instant lookup by product type, location, and MOQ.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+<body class="bg-stonebg text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header & Brand Top Bar -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl p-2 bg-brand-50 text-brand-700 rounded-lg font-bold border border-brand-200">👜</span>
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold text-slate-900 leading-tight">Dhaka Bag Enterprise Portal</h1>
+                        <p class="text-xs text-slate-500 hidden sm:block">Sourcing, Logistics & Compliance Strategic Navigator</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        ● Market Data Active (2025-2029)
+                    </span>
+                </div>
+            </div>
+            <!-- Sticky Navigation Tabs -->
+            <nav class="flex space-x-6 overflow-x-auto border-t border-stone-100 text-sm font-medium text-slate-600 no-scrollbar" id="nav-tabs">
+                <button onclick="switchTab('dashboard')" class="tab-btn active py-3 border-b-2 border-transparent hover:text-brand-700 whitespace-nowrap">📊 Executive Dashboard</button>
+                <button onclick="switchTab('directory')" class="tab-btn py-3 border-b-2 border-transparent hover:text-brand-700 whitespace-nowrap">🏬 Supplier Directory</button>
+                <button onclick="switchTab('calculator')" class="tab-btn py-3 border-b-2 border-transparent hover:text-brand-700 whitespace-nowrap">🧮 Tariff & Duty Calculator</button>
+                <button onclick="switchTab('couriers')" class="tab-btn py-3 border-b-2 border-transparent hover:text-brand-700 whitespace-nowrap">🚚 Logistics & Courier</button>
+                <button onclick="switchTab('legal')" class="tab-btn py-3 border-b-2 border-transparent hover:text-brand-700 whitespace-nowrap">⚖️ Legal & Compliance</button>
+                <button onclick="switchTab('roadmap')" class="tab-btn py-3 border-b-2 border-transparent hover:text-brand-700 whitespace-nowrap">🎯 Strategy Roadmap</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+        <!-- Macro Stats Quick Ribbon -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                <div class="text-xs text-slate-500 font-medium">E-Com Valuation (2029)</div>
+                <div class="text-xl font-extrabold text-slate-900 mt-1">$9.65 Billion</div>
+                <div class="text-xs text-emerald-600 font-medium mt-0.5">↑ 6.8% CAGR (2025-2029)</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                <div class="text-xs text-slate-500 font-medium">Import Customs TTI</div>
+                <div class="text-xl font-extrabold text-brand-700 mt-1">96.10% Tax</div>
+                <div class="text-xs text-rose-600 font-medium mt-0.5">HS Code 4202.21 / 4202.22</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                <div class="text-xs text-slate-500 font-medium">F-Commerce Market Share</div>
+                <div class="text-xl font-extrabold text-slate-900 mt-1">3M+ SMEs</div>
+                <div class="text-xs text-slate-500 font-medium mt-0.5">65-75% Cash on Delivery</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-stone-200 shadow-sm">
+                <div class="text-xs text-slate-500 font-medium">Ad Spend Tax (NBR)</div>
+                <div class="text-xl font-extrabold text-amber-600 mt-1">15% VAT</div>
+                <div class="text-xs text-slate-500 font-medium mt-0.5">+ 300 BDT Endorsement Fee</div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 1: DASHBOARD ================= -->
+        <section id="section-dashboard" class="tab-content space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Macroeconomic Ecosystem & Strategic Overview</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    The digital commerce ecosystem in Bangladesh is rapidly formalizing. While social commerce (F-commerce) lowers barrier to entry, scaling a sustainable ladies' bag enterprise in Dhaka requires mastering supply chain channels, protective customs duties, and last-mile logistics. This dashboard synthesizes high-level market growth, tariff structures, and strategic sourcing options.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Market Projections Chart -->
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-slate-800 text-base">Bangladesh E-Commerce Valuation (USD Billions)</h3>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">2025 - 2029 Projection</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="marketChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Data source: Macroeconomic E-Commerce Industry Report Bangladesh</p>
+                </div>
+
+                <!-- Customs Duty Tax Component Chart -->
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="font-bold text-slate-800 text-base">Import Duty Structure Breakdown (96.10% TTI)</h3>
+                        <span class="text-xs bg-rose-50 text-brand-700 px-2 py-1 rounded font-medium">HS Code 4202</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="taxChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Protective tariff structure levied on CIF value at Bangladesh ports.</p>
+                </div>
+            </div>
+
+            <!-- Sourcing Channels Comparison Table -->
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+                <h3 class="font-bold text-slate-900 text-lg mb-4">Comparative Strategic Analysis of Sourcing Channels</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-stone-50 border-b border-stone-200 text-slate-700 font-semibold">
+                                <th class="p-3">Sourcing Channel</th>
+                                <th class="p-3">Primary Hubs</th>
+                                <th class="p-3">Typical MOQ</th>
+                                <th class="p-3">Capital & Currency Risk</th>
+                                <th class="p-3">Gross Margin Potential</th>
+                                <th class="p-3">Best Suited For</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-100 text-slate-600">
+                            <tr class="hover:bg-stone-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Old Dhaka Wholesale</td>
+                                <td class="p-3">Chawkbazar, Modina Ashik Tower</td>
+                                <td class="p-3 text-emerald-600 font-medium">Ultra Low (6 - 12 pcs)</td>
+                                <td class="p-3">Very Low (BDT, immediate cash)</td>
+                                <td class="p-3">Moderate (30% - 50%)</td>
+                                <td class="p-3">Phase 1 Startups, Fast Testing</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Corporate E-Com Suppliers</td>
+                                <td class="p-3">The Patchee, Wholesale Bag BD</td>
+                                <td class="p-3">Low (10 - 50 pcs)</td>
+                                <td class="p-3">Low (Domestic delivery)</td>
+                                <td class="p-3">Moderate-High (40% - 60%)</td>
+                                <td class="p-3">Curated Stores, Consistent Inventory</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Domestic OEM & Sustainable</td>
+                                <td class="p-3">NNT Factory, Silme Bag (Dhaka)</td>
+                                <td class="p-3">Moderate (100 - 1,000 pcs)</td>
+                                <td class="p-3">Low-Moderate (Domestic BDT)</td>
+                                <td class="p-3">High (60% - 100%)</td>
+                                <td class="p-3">Private Label & Custom Branding</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Genuine Leather Tanneries</td>
+                                <td class="p-3">BSCIC Savar, Hazaribagh, BLJ OEM</td>
+                                <td class="p-3">Low-Moderate (100+ pcs)</td>
+                                <td class="p-3">Moderate (Material Cost)</td>
+                                <td class="p-3">Very High (100% - 150%)</td>
+                                <td class="p-3">Premium Luxury Brand Positioning</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50/50">
+                                <td class="p-3 font-semibold text-slate-800">Direct Import (China)</td>
+                                <td class="p-3">Guangzhou / Yiwu via C&F Door-to-Door</td>
+                                <td class="p-3">High (Bulk / CBM / Kg)</td>
+                                <td class="p-3 text-rose-600 font-medium">High (96.1% Tax + Forex volatility)</td>
+                                <td class="p-3">High (if volume optimizes freight)</td>
+                                <td class="p-3">Established Brands, Unique Trends</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: SUPPLIER DIRECTORY ================= -->
+        <section id="section-directory" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Verified Wholesale Suppliers & Manufacturer Directory</h2>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Explore verified primary suppliers across Dhaka's key trade ecosystems: Old Dhaka wholesale markets, corporate e-commerce suppliers, specialized OEM factories, Savar leather manufacturers, and hardware/packaging providers. Use the filters below to narrow your search.
+                </p>
+
+                <!-- Search and Filter Controls -->
+                <div class="flex flex-col md:flex-row gap-3 pt-2">
+                    <div class="flex-1 relative">
+                        <input type="text" id="directorySearch" onkeyup="filterDirectory()" placeholder="Search supplier name, product type, address, or phone..." class="w-full pl-9 pr-4 py-2 bg-stone-50 border border-stone-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <span class="absolute left-3 top-2.5 text-slate-400 text-sm">🔍</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2" id="category-filters">
+                        <button onclick="setDirectoryCategory('ALL')" class="dir-filter-btn active-filter bg-brand-700 text-white text-xs px-3 py-2 rounded-lg font-medium transition">All Suppliers</button>
+                        <button onclick="setDirectoryCategory('CHAWKBAZAR')" class="dir-filter-btn bg-stone-100 text-slate-700 hover:bg-stone-200 text-xs px-3 py-2 rounded-lg font-medium transition">Chawkbazar Wholesale</button>
+                        <button onclick="setDirectoryCategory('CORPORATE')" class="dir-filter-btn bg-stone-100 text-slate-700 hover:bg-stone-200 text-xs px-3 py-2 rounded-lg font-medium transition">Corporate & OEM</button>
+                        <button onclick="setDirectoryCategory('LEATHER')" class="dir-filter-btn bg-stone-100 text-slate-700 hover:bg-stone-200 text-xs px-3 py-2 rounded-lg font-medium transition">Genuine Leather</button>
+                        <button onclick="setDirectoryCategory('PACKAGING')" class="dir-filter-btn bg-stone-100 text-slate-700 hover:bg-stone-200 text-xs px-3 py-2 rounded-lg font-medium transition">Hardware & Packaging</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Directory Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="supplier-cards-grid">
+                <!-- Cards injected dynamically via JavaScript -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: DUTY & TARIFF CALCULATOR ================= -->
+        <section id="section-calculator" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Import Customs Duty & Landed Cost Calculator</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Under National Board of Revenue (NBR) regulations, imported finished ladies' bags (HS Code 4202.21 / 4202.22) incur a cumulative <strong>96.10% Total Tax Incidence (TTI)</strong> applied sequentially to the CIF value. Use this calculator to model landed costs per unit for direct overseas imports.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- Calculator Inputs -->
+                <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-800 text-base border-b pb-2 border-stone-100">Shipment Parameters</h3>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Unit FOB Purchase Price (USD $)</label>
+                        <input type="number" id="calcFob" value="10.00" step="0.50" oninput="calculateImportCost()" class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm font-semibold focus:ring-2 focus:ring-brand-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Freight Mode & Estimated Shipping (per unit)</label>
+                        <select id="calcMode" onchange="calculateImportCost()" class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm font-semibold focus:ring-2 focus:ring-brand-500">
+                            <option value="air">Air Freight ($6.50 / kg avg door-to-door)</option>
+                            <option value="sea">Sea Freight ($2.00 / bag equivalent via CBM)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Freight + Ins ($)</label>
+                            <input type="number" id="calcFreight" value="2.00" step="0.25" oninput="calculateImportCost()" class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">USD to BDT Rate</label>
+                            <input type="number" id="calcUsdRate" value="122.00" step="0.50" oninput="calculateImportCost()" class="w-full p-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 mb-1">Target Retail Markup Multiplier</label>
+                        <input type="range" id="calcMarkup" min="1.5" max="3.5" step="0.1" value="2.2" oninput="calculateImportCost()" class="w-full accent-brand-700">
+                        <div class="flex justify-between text-xs text-slate-500">
+                            <span>1.5x</span>
+                            <span id="calcMarkupVal" class="font-bold text-brand-700">2.2x Markup</span>
+                            <span>3.5x</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculated Output & Tax Breakdown -->
+                <div class="lg:col-span-7 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-6">
+                    <h3 class="font-bold text-slate-800 text-base border-b pb-2 border-stone-100">Calculated Landed Unit Economics</h3>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
+                            <div class="text-xs text-slate-500">CIF Value (Port Base)</div>
+                            <div class="text-base font-bold text-slate-900" id="resCifUsd">$12.00</div>
+                            <div class="text-xs text-slate-500" id="resCifBdt">1,464 BDT</div>
+                        </div>
+                        <div class="bg-rose-50 p-3 rounded-xl border border-rose-200">
+                            <div class="text-xs text-rose-700 font-medium">Customs Tax (96.1%)</div>
+                            <div class="text-base font-bold text-rose-800" id="resTaxUsd">$11.53</div>
+                            <div class="text-xs text-rose-600" id="resTaxBdt">1,407 BDT</div>
+                        </div>
+                        <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 col-span-2 sm:col-span-1">
+                            <div class="text-xs text-emerald-700 font-medium">Total Landed Cost</div>
+                            <div class="text-lg font-black text-emerald-800" id="resLandedBdt">2,871 BDT</div>
+                            <div class="text-xs text-emerald-600 font-semibold" id="resLandedUsd">$23.53 USD</div>
+                        </div>
+                    </div>
+
+                    <!-- Suggested Selling Price Banner -->
+                    <div class="bg-slate-900 text-white p-4 rounded-xl flex justify-between items-center">
+                        <div>
+                            <div class="text-xs text-slate-400">Recommended Retail Selling Price (SRP)</div>
+                            <div class="text-2xl font-black text-amber-400" id="resSrpBdt">6,316 BDT</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs text-slate-400">Projected Gross Margin</div>
+                            <div class="text-lg font-bold text-emerald-400" id="resGrossMargin">3,445 BDT / unit</div>
+                        </div>
+                    </div>
+
+                    <!-- Tax Components Table -->
+                    <div class="text-xs space-y-1 bg-stone-50 p-3 rounded-lg border border-stone-200">
+                        <div class="font-semibold text-slate-700 mb-1">Sequential Duties Breakdown:</div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-slate-600">
+                            <div>● CD (25.0%): <span font-medium id="taxCd">366 BDT</span></div>
+                            <div>● RD (5.0%): <span font-medium id="taxRd">73 BDT</span></div>
+                            <div>● SD (20.0%): <span font-medium id="taxSd">380 BDT</span></div>
+                            <div>● VAT (15.0%): <span font-medium id="taxVat">342 BDT</span></div>
+                            <div>● AIT (5.0%): <span font-medium id="taxAit">73 BDT</span></div>
+                            <div>● AT (7.5%): <span font-medium id="taxAt">110 BDT</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 4: COURIER & LOGISTICS ================= -->
+        <section id="section-couriers" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Last-Mile Courier Logistics & RTO Analysis</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Over 65-75% of online bag orders in Bangladesh are completed via Cash on Delivery (COD). Courier selection impacts delivery speed, payout speed, cash flow, and Return to Origin (RTO) penalty charges.
+                </p>
+            </div>
+
+            <!-- Courier Rates Visual Comparison -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-base mb-4">Base Courier Shipping Fee Comparison (Standard Bag Parcel ≤ 1kg)</h3>
+                    <div class="chart-container">
+                        <canvas id="courierChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Interactive RTO & Delivery Profit Calculator -->
+                <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-800 text-base border-b pb-2 border-stone-100">Fulfillment & RTO Impact Simulator</h3>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Selling Price (BDT)</label>
+                            <input type="number" id="rtoSrp" value="1800" step="50" oninput="calculateRtoImpact()" class="w-full p-2 bg-stone-50 border border-stone-300 rounded text-sm font-semibold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Product Sourcing Cost (BDT)</label>
+                            <input type="number" id="rtoCost" value="850" step="50" oninput="calculateRtoImpact()" class="w-full p-2 bg-stone-50 border border-stone-300 rounded text-sm font-semibold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Customer Location</label>
+                            <select id="rtoLoc" onchange="calculateRtoImpact()" class="w-full p-2 bg-stone-50 border border-stone-300 rounded text-sm font-semibold">
+                                <option value="dhaka">Inside Dhaka</option>
+                                <option value="outside">Outside Dhaka</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 mb-1">Estimated RTO Rate (%)</label>
+                            <input type="number" id="rtoRate" value="12" min="0" max="40" oninput="calculateRtoImpact()" class="w-full p-2 bg-stone-50 border border-stone-300 rounded text-sm font-semibold">
+                        </div>
+                    </div>
+
+                    <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-600">Standard Delivery + COD Charge:</span>
+                            <span id="resDeliveryFee" class="font-semibold text-slate-800">83 BDT</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-600">Estimated Return Penalty Loss / Order:</span>
+                            <span id="resRtoPenalty" class="font-semibold text-rose-600">12.6 BDT</span>
+                        </div>
+                        <div class="border-t border-stone-200 pt-2 flex justify-between items-center">
+                            <span class="font-bold text-slate-800 text-sm">Real Net Margin / Order:</span>
+                            <span id="resRealNetMargin" class="font-extrabold text-emerald-700 text-lg">854.4 BDT</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-500 italic">
+                        *Tip: Utilize phone confirmation and Steadfast/Pathao customer delivery history scores to keep RTO under 8%.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Logistics Provider Profiles -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-slate-900">Pathao Courier</h4>
+                        <span class="text-xs bg-red-100 text-red-800 font-bold px-2 py-0.5 rounded">Fastest Dhaka</span>
+                    </div>
+                    <ul class="text-xs text-slate-600 space-y-1.5">
+                        <li>● <strong>Dhaka Fee:</strong> 60 - 70 BDT</li>
+                        <li>● <strong>Outside Dhaka:</strong> 100 - 130 BDT</li>
+                        <li>● <strong>COD Fee:</strong> 0.5% (Dhaka) / 1% (Outside)</li>
+                        <li>● <strong>Payout Speed:</strong> 1 - 2 business days</li>
+                        <li>● <strong>Strength:</strong> Unmatched bike fleet density in Metro Dhaka.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-slate-900">Steadfast Courier</h4>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Merchant Favorite</span>
+                    </div>
+                    <ul class="text-xs text-slate-600 space-y-1.5">
+                        <li>● <strong>Dhaka Fee:</strong> 55 - 65 BDT</li>
+                        <li>● <strong>Outside Dhaka:</strong> 100 - 120 BDT</li>
+                        <li>● <strong>COD Fee:</strong> 1% flat</li>
+                        <li>● <strong>Payout Speed:</strong> 2 - 3 business days</li>
+                        <li>● <strong>Strength:</strong> Predictable pricing, outstanding merchant dashboard & fraud check.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-slate-900">RedX Logistics</h4>
+                        <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">Widest Coverage</span>
+                    </div>
+                    <ul class="text-xs text-slate-600 space-y-1.5">
+                        <li>● <strong>Dhaka Fee:</strong> 65 - 75 BDT</li>
+                        <li>● <strong>Outside Dhaka:</strong> 90 - 120 BDT</li>
+                        <li>● <strong>COD Fee:</strong> 1% (Occasional promo 0%)</li>
+                        <li>● <strong>Payout Speed:</strong> 1 - 3 business days</li>
+                        <li>● <strong>Strength:</strong> Deepest nationwide district coverage for heavy/bulky bags.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 5: LEGAL & COMPLIANCE ================= -->
+        <section id="section-legal" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Legal Compliance & Operational Regulations Roadmap</h2>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    The Ministry of Commerce and National Board of Revenue strictly enforce operational guidelines for e-commerce and F-commerce in Bangladesh. Ensure your business completes all mandatory compliance thresholds below.
+                </p>
+
+                <!-- Readiness Tracker Progress Bar -->
+                <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-700">
+                        <span>Legal Compliance Readiness Tracker</span>
+                        <span id="legalProgressText" class="text-brand-700">0 of 5 Completed (0%)</span>
+                    </div>
+                    <div class="w-full bg-stone-200 h-3 rounded-full overflow-hidden">
+                        <div id="legalProgressBar" class="bg-brand-700 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Checklist Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                
+                <!-- Trade License -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex space-x-3">
+                    <input type="checkbox" id="chk1" onchange="updateLegalProgress()" class="mt-1 h-5 w-5 text-brand-600 focus:ring-brand-500 rounded border-stone-300">
+                    <div>
+                        <label for="chk1" class="font-bold text-slate-900 text-sm cursor-pointer">E-Trade License (DNCC / DSCC)</label>
+                        <p class="text-xs text-slate-600 mt-1">
+                            Applied online via <code>erevenue.dncc.gov.bd</code> or <code>erevenue.dscc.gov.bd</code>. Base fee ~2,000 BDT + 15% VAT + Signboard tax (80 BDT/sqft). Annual renewal: ~2,800 - 4,174 BDT.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DBID -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex space-x-3">
+                    <input type="checkbox" id="chk2" onchange="updateLegalProgress()" class="mt-1 h-5 w-5 text-brand-600 focus:ring-brand-500 rounded border-stone-300">
+                    <div>
+                        <label for="chk2" class="font-bold text-slate-900 text-sm cursor-pointer">Digital Business Identification (DBID)</label>
+                        <p class="text-xs text-slate-600 mt-1">
+                            Mandatory registration with Ministry of Commerce for all F-commerce/E-commerce entities. Must display DBID number prominently on storefront/FB page.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2021 Operational Guidelines -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex space-x-3">
+                    <input type="checkbox" id="chk3" onchange="updateLegalProgress()" class="mt-1 h-5 w-5 text-brand-600 focus:ring-brand-500 rounded border-stone-300">
+                    <div>
+                        <label for="chk3" class="font-bold text-slate-900 text-sm cursor-pointer">2021 Digital Commerce Guidelines SLA</label>
+                        <p class="text-xs text-slate-600 mt-1">
+                            Bangla text terms/refund policies. Handover courier within 48 hrs. Max delivery: 5 days (inside city) / 10 days (outside). Out-of-stock refund executed within 72 hrs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bank & Dual Currency Passport Endorsement -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex space-x-3">
+                    <input type="checkbox" id="chk4" onchange="updateLegalProgress()" class="mt-1 h-5 w-5 text-brand-600 focus:ring-brand-500 rounded border-stone-300">
+                    <div>
+                        <label for="chk4" class="font-bold text-slate-900 text-sm cursor-pointer">Bank Dual Currency & Passport Endorsement</label>
+                        <p class="text-xs text-slate-600 mt-1">
+                            Dual-currency corporate/prepaid card for Meta Ads. Passport endorsed against travel quota (fee capped at 300 BDT max by Bangladesh Bank).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Meta Ad 15% VAT Compliance -->
+                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex space-x-3 md:col-span-2">
+                    <input type="checkbox" id="chk5" onchange="updateLegalProgress()" class="mt-1 h-5 w-5 text-brand-600 focus:ring-brand-500 rounded border-stone-300">
+                    <div>
+                        <label for="chk5" class="font-bold text-slate-900 text-sm cursor-pointer">15% Ad VAT Compliance (NBR)</label>
+                        <p class="text-xs text-slate-600 mt-1">
+                            NBR mandates automatic 15% VAT deduction on all Facebook/Meta ad payments deducted by issuing banks. Factor this 15% addition into your customer acquisition cost (CAC).
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= SECTION 6: STRATEGY ROADMAP ================= -->
+        <section id="section-roadmap" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">3-Phase Strategic Enterprise Execution Plan</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    A phased operational roadmap minimizes initial capital risk while creating a clear trajectory toward scalable private-label brand ownership.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Phase 1 -->
+                <div class="bg-white p-6 rounded-2xl border-t-4 border-brand-700 shadow-sm relative space-y-3">
+                    <span class="text-xs font-bold text-brand-700 bg-brand-50 px-2 py-1 rounded uppercase tracking-wider">Phase 1 (Months 1 - 3)</span>
+                    <h3 class="font-extrabold text-slate-900 text-base">Proof of Concept & Market Testing</h3>
+                    <ul class="text-xs text-slate-600 space-y-2">
+                        <li>✔ <strong>Sourcing:</strong> Domestic wholesale from Chawkbazar (Modina Ashik Tower) & corporate importers (The Patchee BD). Minimal upfront capital.</li>
+                        <li>✔ <strong>Legal:</strong> E-Trade license acquisition (DNCC/DSCC) & MFS bKash Merchant account set up.</li>
+                        <li>✔ <strong>Marketing:</strong> White background catalog photography (CK Studio/Color Experts BD) + basic Meta interest targeting.</li>
+                        <li>✔ <strong>Logistics:</strong> Onboard with Steadfast or Pathao Courier for COD.</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="bg-white p-6 rounded-2xl border-t-4 border-amber-500 shadow-sm relative space-y-3">
+                    <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-1 rounded uppercase tracking-wider">Phase 2 (Months 4 - 9)</span>
+                    <h3 class="font-extrabold text-slate-900 text-base">Market Penetration & Systematization</h3>
+                    <ul class="text-xs text-slate-600 space-y-2">
+                        <li>✔ <strong>Marketing:</strong> Layered Meta Ads targeting (Females 25-45 + "Engaged Shoppers" AND "Handbags").</li>
+                        <li>✔ <strong>Automation:</strong> Integrate AI Sales Bot (Sellzy) for automated 24/7 Bangla Messenger replies & order booking.</li>
+                        <li>✔ <strong>Packaging:</strong> Shift to custom 3-ply corrugated mailers (JobaidaPack/WrapUp BD) and printed dust bags (100 MOQ).</li>
+                        <li>✔ <strong>Optimization:</strong> Active phone verification to drop RTO under 8%.</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="bg-white p-6 rounded-2xl border-t-4 border-emerald-600 shadow-sm relative space-y-3">
+                    <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-1 rounded uppercase tracking-wider">Phase 3 (Months 10+)</span>
+                    <h3 class="font-extrabold text-slate-900 text-base">Private Labeling & Margin Expansion</h3>
+                    <ul class="text-xs text-slate-600 space-y-2">
+                        <li>✔ <strong>Manufacturing:</strong> Partner with local OEM factories (NNT Bag Factory or BLJ Bangladesh for 100 pcs MOQ genuine leather).</li>
+                        <li>✔ <strong>Direct Import:</strong> Utilize door-to-door C&F forwarders for unique Guangzhou fast-fashion items.</li>
+                        <li>✔ <strong>Quality Control:</strong> Deploy 3rd party preshipment inspection protocols (SGS/Tetra Inspection).</li>
+                        <li>✔ <strong>E-Commerce:</strong> Launch standalone Shopify web portal backed by DBID certification.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-stone-200 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-1">
+            <p class="font-semibold text-slate-700">Dhaka Ladies Bag Business Sourcing & Strategy Portal</p>
+            <p>Based on Comprehensive Industry Market Research & Bangladesh Customs NBR Tariff Specifications</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Data Structures
+        const suppliersData = [
+            {
+                name: "New Top Ten",
+                category: "CHAWKBAZAR",
+                address: "Shop 386, 387, Floor 3, Modina Ashik Tower, Chawkbazar, Dhaka",
+                phone: "01715-231117, 01631-861676",
+                focus: "Ladies Handbags, Shoulder Bags, School Bags",
+                moq: "6 - 12 Pcs",
+                tags: ["Synthetic PU", "Entry Pricing", "Wholesale Hub"]
+            },
+            {
+                name: "Bag Heaven",
+                category: "CHAWKBAZAR",
+                address: "Shop 457, 458, Floor 4, Madina Ashik Tower, Chawkbazar, Dhaka",
+                phone: "01969-578938, 01861-601028",
+                focus: "Imported Chinese PU Leather Bags, Premium Synthetics",
+                moq: "12 Pcs",
+                tags: ["Trending Designs", "Direct Importer", "Chawkbazar"]
+            },
+            {
+                name: "Altaf Bin Monir Bag Gallery",
+                category: "CHAWKBAZAR",
+                address: "Shop 10-11 (Underground-2), Medina Ashiq Tower, Chawkbazar",
+                phone: "0257312944, 01819-448814",
+                focus: "Wholesale Ladies Purses, Utility Totes, Travel Pouches",
+                moq: "12 Pcs",
+                tags: ["Bulk Wholesale", "Modina Ashik", "Budget Bags"]
+            },
+            {
+                name: "Popular Bag House",
+                category: "CHAWKBAZAR",
+                address: "Momtaz Tower, Chawkbazar, Old Dhaka",
+                phone: "01850-586084",
+                focus: "Ladies Bags, Travel Trolleys, Luggage Bags",
+                moq: "6 Pcs (Trolleys start ~650 BDT)",
+                tags: ["Trolleys", "Travel Totes", "High Margin"]
+            },
+            {
+                name: "Moktar Bag Store",
+                category: "CHAWKBAZAR",
+                address: "M Hossain Plaza (3rd Floor), West of AC Mosque, Chawkbazar",
+                phone: "01711-261500, 01795-641600",
+                focus: "Low-Cost Backpacks, Standard Purses, Fast Selling Items",
+                moq: "12 Pcs",
+                tags: ["Budget Backpacks", "Fast Fashion", "Chawkbazar"]
+            },
+            {
+                name: "The Patchee Bangladesh",
+                category: "CORPORATE",
+                address: "Digital First / Nationwide Delivery, Dhaka HQ",
+                phone: "+880 16 2728 0575, +880 18 9619 5448",
+                focus: "Bulk Women's Shoulder Bags, Canvas Totes, Corduroy Clutches",
+                moq: "10 - 20 Pcs",
+                tags: ["E-Com Specialist", "Retro Canvas", "High Quality PU"]
+            },
+            {
+                name: "Wholesale Bag BD",
+                category: "CORPORATE",
+                address: "427/17-D, Jhaawchar, Hazaribagh, Dhaka",
+                phone: "01919-921771, 01791-873136",
+                focus: "Direct Importer of Trending Bags & Local Manufacturer (Backpacks/Jute)",
+                moq: "10 Pcs",
+                tags: ["Custom Logo Branding", "Importer & OEM", "Hazaribagh"]
+            },
+            {
+                name: "NNT Bag Factory",
+                category: "CORPORATE",
+                address: "Dhaka Corporate Headquarters (nnt.com.bd)",
+                phone: "nnt.com.bd",
+                focus: "Full-Scale OEM Bag Manufacturer, PU Leather Crossbody, Embroidery",
+                moq: "100 Pcs",
+                tags: ["Private Label OEM", "Custom Cutting & Stitching", "Factory Direct"]
+            },
+            {
+                name: "Silme Bag Industries Ltd.",
+                category: "CORPORATE",
+                address: "Dhaka Corporate Headquarters",
+                phone: "01974-446001",
+                focus: "SEDEX-Certified Eco-Friendly Jute, Organic Cotton, Non-Woven Totes",
+                moq: "1,000 Pcs",
+                tags: ["SEDEX Certified", "Eco Friendly Jute", "Export Quality"]
+            },
+            {
+                name: "BLJ Bangladesh Corporation (BLJ OEM)",
+                category: "LEATHER",
+                address: "Belma, Ashulia, Savar (Office: House-226, Mirpur DOHS)",
+                phone: "BLJ OEM Direct",
+                focus: "Japanese Managed Genuine Leather OEM/ODM, Ultra-Low MOQ",
+                moq: "100 Pcs (Very Startup Friendly)",
+                tags: ["ISO 14001:2015", "Japanese QC Standard", "100% Genuine Leather"]
+            },
+            {
+                name: "Dhaka Leather Export",
+                category: "LEATHER",
+                address: "Zigatola, Dhaka / Hazaribagh Tannery Zone",
+                phone: "01896-178182, 01896-178181",
+                focus: "Genuine Leather Handbags, Crocodile Embossed Purses, Crossbody",
+                moq: "50 - 100 Pcs",
+                tags: ["Genuine Bovine Leather", "Luxury Crocodile Finish"]
+            },
+            {
+                name: "BAG-BD",
+                category: "LEATHER",
+                address: "Sher-E-Bangla Road, Hazaribagh, Dhaka",
+                phone: "01716-638144, 01711-273843",
+                focus: "Engineer-Led Domestic Leather Processing, ODM/OEM Bag Production",
+                moq: "50 Pcs",
+                tags: ["Engineer Managed", "100% Domestic Leather", "Custom Patterns"]
+            },
+            {
+                name: "Alliance Leather Goods & Footwear",
+                category: "LEATHER",
+                address: "Chandertek, Satarkul, Badda, Dhaka",
+                phone: "dipak@affootwear.com",
+                focus: "High Volume Export Grade Genuine Leather Bags",
+                moq: "500 Pcs",
+                tags: ["ISO 9001", "BSCI Certified", "SEDEX Certified"]
+            },
+            {
+                name: "WrapUp BD",
+                category: "PACKAGING",
+                address: "Dhaka Delivery Network (wrapupbd.com)",
+                phone: "WrapUp BD Service",
+                focus: "Custom Corrugated Mailer Boxes & Printed Non-Woven Dust Bags (20x22 in)",
+                moq: "100 Pcs",
+                tags: ["Dust Bags", "Custom Box Packaging", "Low MOQ"]
+            },
+            {
+                name: "JobaidaPack (Jobaida Printing & Packaging)",
+                category: "PACKAGING",
+                address: "Licensed Printing & Packaging Factory, Dhaka",
+                phone: "JobaidaPack Sales",
+                focus: "3-Ply & 5-Ply Custom Die-Cut Corrugated Mailer Boxes & Master Cartons",
+                moq: "250 Pcs",
+                tags: ["Die-Cut Boxes", "Custom Logo Print", "Factory Packaging"]
+            },
+            {
+                name: "Mehedi Garments Accessories",
+                category: "PACKAGING",
+                address: "Avenue City Plaza, Sadarghat, Dhaka",
+                phone: "Sadarghat Showroom",
+                focus: "Metal Buttons, Zippers, Alloy D-Rings, Buckles & Trims",
+                moq: "Bulk Wholesale",
+                tags: ["Hardware & Trims", "Sadarghat Market"]
+            }
+        ];
+
+        let currentDirectoryCategory = 'ALL';
+
+        // Render Directory Cards
+        function renderDirectory() {
+            const container = document.getElementById('supplier-cards-grid');
+            const searchQuery = document.getElementById('directorySearch').value.toLowerCase();
+            container.innerHTML = '';
+
+            const filtered = suppliersData.filter(item => {
+                const matchesCategory = currentDirectoryCategory === 'ALL' || item.category === currentDirectoryCategory;
+                const matchesSearch = item.name.toLowerCase().includes(searchQuery) ||
+                                      item.address.toLowerCase().includes(searchQuery) ||
+                                      item.focus.toLowerCase().includes(searchQuery) ||
+                                      item.tags.some(t => t.toLowerCase().includes(searchQuery));
+                return matchesCategory && matchesSearch;
+            });
+
+            if(filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 text-sm">No suppliers found matching your criteria.</div>`;
+                return;
+            }
+
+            filtered.forEach(s => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-3";
+                
+                let categoryBadgeClass = "bg-stone-100 text-slate-700";
+                if(s.category === 'CHAWKBAZAR') categoryBadgeClass = "bg-rose-50 text-rose-700 font-bold";
+                if(s.category === 'CORPORATE') categoryBadgeClass = "bg-blue-50 text-blue-700 font-bold";
+                if(s.category === 'LEATHER') categoryBadgeClass = "bg-amber-50 text-amber-800 font-bold";
+                if(s.category === 'PACKAGING') categoryBadgeClass = "bg-purple-50 text-purple-700 font-bold";
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-slate-900 text-base leading-snug">${s.name}</h3>
+                            <span class="text-xs px-2 py-0.5 rounded ${categoryBadgeClass}">${s.category}</span>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-700 mb-1">🎯 ${s.focus}</p>
+                        <p class="text-xs text-slate-500 mb-2">📍 ${s.address}</p>
+                        <div class="text-xs bg-stone-50 p-2 rounded border border-stone-100 font-medium text-slate-800 mb-2">
+                            📞 Contact: <span class="font-bold text-brand-800">${s.phone}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-xs text-slate-600 mb-2"><strong>MOQ:</strong> ${s.moq}</div>
+                        <div class="flex flex-wrap gap-1">
+                            ${s.tags.map(t => `<span class="text-[10px] bg-stone-100 text-slate-600 px-2 py-0.5 rounded">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function setDirectoryCategory(cat) {
+            currentDirectoryCategory = cat;
+            document.querySelectorAll('.dir-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-700', 'text-white');
+                btn.classList.add('bg-stone-100', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-stone-100', 'text-slate-700');
+            event.target.classList.add('bg-brand-700', 'text-white');
+            renderDirectory();
+        }
+
+        function filterDirectory() {
+            renderDirectory();
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(`section-${tabId}`).classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+
+        // Import Calculator Logic
+        function calculateImportCost() {
+            const fob = parseFloat(document.getElementById('calcFob').value) || 0;
+            const freight = parseFloat(document.getElementById('calcFreight').value) || 0;
+            const usdRate = parseFloat(document.getElementById('calcUsdRate').value) || 122;
+            const markup = parseFloat(document.getElementById('calcMarkup').value) || 2.2;
+
+            document.getElementById('calcMarkupVal').innerText = `${markup.toFixed(1)}x Markup`;
+
+            const cifUsd = fob + freight;
+            const cifBdt = cifUsd * usdRate;
+
+            // NBR Sequential Duties Logic
+            const cd = cifBdt * 0.25;
+            const rd = cifBdt * 0.05;
+            const sd = (cifBdt + cd + rd) * 0.20;
+            const vat = (cifBdt + cd + rd + sd) * 0.15;
+            const ait = cifBdt * 0.05;
+            const at = cifBdt * 0.075;
+
+            const totalTaxBdt = cd + rd + sd + vat + ait + at;
+            const totalTaxUsd = totalTaxBdt / usdRate;
+
+            const landedBdt = cifBdt + totalTaxBdt;
+            const landedUsd = landedBdt / usdRate;
+
+            const srpBdt = landedBdt * markup;
+            const grossMarginBdt = srpBdt - landedBdt;
+
+            // DOM Updates
+            document.getElementById('resCifUsd').innerText = `$${cifUsd.toFixed(2)}`;
+            document.getElementById('resCifBdt').innerText = `${Math.round(cifBdt).toLocaleString()} BDT`;
+
+            document.getElementById('resTaxUsd').innerText = `$${totalTaxUsd.toFixed(2)}`;
+            document.getElementById('resTaxBdt').innerText = `${Math.round(totalTaxBdt).toLocaleString()} BDT`;
+
+            document.getElementById('resLandedBdt').innerText = `${Math.round(landedBdt).toLocaleString()} BDT`;
+            document.getElementById('resLandedUsd').innerText = `$${landedUsd.toFixed(2)} USD`;
+
+            document.getElementById('resSrpBdt').innerText = `${Math.round(srpBdt).toLocaleString()} BDT`;
+            document.getElementById('resGrossMargin').innerText = `${Math.round(grossMarginBdt).toLocaleString()} BDT / unit`;
+
+            document.getElementById('taxCd').innerText = `${Math.round(cd)} BDT`;
+            document.getElementById('taxRd').innerText = `${Math.round(rd)} BDT`;
+            document.getElementById('taxSd').innerText = `${Math.round(sd)} BDT`;
+            document.getElementById('taxVat').innerText = `${Math.round(vat)} BDT`;
+            document.getElementById('taxAit').innerText = `${Math.round(ait)} BDT`;
+            document.getElementById('taxAt').innerText = `${Math.round(at)} BDT`;
+        }
+
+        // RTO Impact Calculator
+        function calculateRtoImpact() {
+            const srp = parseFloat(document.getElementById('rtoSrp').value) || 0;
+            const cost = parseFloat(document.getElementById('rtoCost').value) || 0;
+            const loc = document.getElementById('rtoLoc').value;
+            const rtoRate = (parseFloat(document.getElementById('rtoRate').value) || 0) / 100;
+
+            const courierBase = (loc === 'dhaka') ? 65 : 110;
+            const codCharge = srp * 0.01;
+            const totalDeliveryFee = courierBase + codCharge;
+
+            // Return charge penalty is usually 50% of shipping + lost forward shipping
+            const returnPenalty = (courierBase * 1.5); 
+            const avgRtoLossPerOrder = returnPenalty * rtoRate;
+
+            const realNetMargin = (srp - cost - totalDeliveryFee) - avgRtoLossPerOrder;
+
+            document.getElementById('resDeliveryFee').innerText = `${Math.round(totalDeliveryFee)} BDT`;
+            document.getElementById('resRtoPenalty').innerText = `${avgRtoLossPerOrder.toFixed(1)} BDT`;
+            document.getElementById('resRealNetMargin').innerText = `${Math.round(realNetMargin)} BDT`;
+        }
+
+        // Legal Checklist Tracker
+        function updateLegalProgress() {
+            const checkboxes = [
+                document.getElementById('chk1'),
+                document.getElementById('chk2'),
+                document.getElementById('chk3'),
+                document.getElementById('chk4'),
+                document.getElementById('chk5')
+            ];
+            const checkedCount = checkboxes.filter(c => c && c.checked).length;
+            const pct = Math.round((checkedCount / checkboxes.length) * 100);
+
+            document.getElementById('legalProgressText').innerText = `${checkedCount} of ${checkboxes.length} Completed (${pct}%)`;
+            document.getElementById('legalProgressBar').style.width = `${pct}%`;
+        }
+
+        // Initialize Charts
+        function initCharts() {
+            // Market Projection Chart
+            const ctxMarket = document.getElementById('marketChart').getContext('2d');
+            new Chart(ctxMarket, {
+                type: 'bar',
+                data: {
+                    labels: ['2025', '2026', '2027', '2028', '2029 (Est)'],
+                    datasets: [{
+                        label: 'E-Com Market Size (USD $ Billion)',
+                        data: [7.42, 7.92, 8.46, 9.04, 9.65],
+                        backgroundColor: '#be123c',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Market Size: $${context.parsed.y} Billion USD`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 6,
+                            ticks: { callback: value => '$' + value + 'B' }
+                        }
+                    }
+                }
+            });
+
+            // Tax Breakdown Donut Chart
+            const ctxTax = document.getElementById('taxChart').getContext('2d');
+            new Chart(ctxTax, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Customs Duty (25%)', 'Supp. Duty (20%)', 'VAT (15%)', 'Adv Tax (7.5%)', 'AIT (5.0%)', 'Reg Duty (5.0%)'],
+                    datasets: [{
+                        data: [25.0, 20.0, 15.0, 7.5, 5.0, 5.0],
+                        backgroundColor: [
+                            '#be123c',
+                            '#e11d48',
+                            '#f43f5e',
+                            '#fb7185',
+                            '#fecdd3',
+                            '#ffe4e6'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }
+                    }
+                }
+            });
+
+            // Courier Comparison Bar Chart
+            const ctxCourier = document.getElementById('courierChart').getContext('2d');
+            new Chart(ctxCourier, {
+                type: 'bar',
+                data: {
+                    labels: ['Pathao Courier', 'Steadfast Courier', 'RedX Logistics'],
+                    datasets: [
+                        {
+                            label: 'Inside Dhaka (BDT)',
+                            data: [65, 60, 70],
+                            backgroundColor: '#be123c',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Outside Dhaka (BDT)',
+                            data: [115, 110, 105],
+                            backgroundColor: '#334155',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { callback: v => v + ' BDT' } }
+                    }
+                }
+            });
+        }
+
+        // Window Onload
+        window.onload = function() {
+            renderDirectory();
+            calculateImportCost();
+            calculateRtoImpact();
+            initCharts();
+        };
+    </script>
+</body>
+</html>
